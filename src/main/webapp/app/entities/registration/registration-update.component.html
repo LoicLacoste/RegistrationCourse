@@ -1,0 +1,57 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-registration-heading" jhiTranslate="registrationCourseApp.registration.home.createOrEditLabel">Create or edit a Registration</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="registrationCourseApp.registration.isCertOk" for="field_isCertOk">Is Cert Ok</label>
+                    <input type="checkbox" class="form-control" name="isCertOk" id="field_isCertOk"
+                           formControlName="isCertOk"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="registrationCourseApp.registration.isPaye" for="field_isPaye">Is Paye</label>
+                    <input type="checkbox" class="form-control" name="isPaye" id="field_isPaye"
+                           formControlName="isPaye"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="registrationCourseApp.registration.dossard" for="field_dossard">Dossard</label>
+                    <input type="number" class="form-control" name="dossard" id="field_dossard"
+                           formControlName="dossard"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="registrationCourseApp.registration.temps" for="field_temps">Temps</label>
+                    <input type="number" class="form-control" name="temps" id="field_temps"
+                           formControlName="temps"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="registrationCourseApp.registration.date" for="field_date">Date</label>
+                    <div class="d-flex">
+                        <input id="field_date" type="datetime-local" class="form-control" name="date" formControlName="date" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

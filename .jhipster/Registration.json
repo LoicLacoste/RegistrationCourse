@@ -1,0 +1,50 @@
+{
+    "name": "Registration",
+    "fields": [
+        {
+            "fieldName": "isCertOk",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "isPaye",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "dossard",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "temps",
+            "fieldType": "Duration"
+        },
+        {
+            "fieldName": "date",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "course",
+            "otherEntityRelationshipName": "registration",
+            "relationshipName": "course"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "user",
+            "otherEntityRelationshipName": "registration",
+            "relationshipName": "user"
+        }
+    ],
+    "changelogDate": "20200704114700",
+    "entityTableName": "registration",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

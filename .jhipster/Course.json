@@ -1,0 +1,57 @@
+{
+    "name": "Course",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "address",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "price",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "places",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "dateCourse",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "imageCourse",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "registration",
+            "otherEntityRelationshipName": "course",
+            "relationshipName": "registration",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200704114600",
+    "entityTableName": "course",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

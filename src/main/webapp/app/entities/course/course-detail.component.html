@@ -1,0 +1,65 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="course">
+            <h2><span jhiTranslate="registrationCourseApp.course.detail.title">Course</span> {{ course.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="registrationCourseApp.course.name">Name</span></dt>
+                <dd>
+                    <span>{{ course.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="registrationCourseApp.course.description">Description</span></dt>
+                <dd>
+                    <span>{{ course.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="registrationCourseApp.course.address">Address</span></dt>
+                <dd>
+                    <span>{{ course.address }}</span>
+                </dd>
+                <dt><span jhiTranslate="registrationCourseApp.course.price">Price</span></dt>
+                <dd>
+                    <span>{{ course.price }}</span>
+                </dd>
+                <dt><span jhiTranslate="registrationCourseApp.course.places">Places</span></dt>
+                <dd>
+                    <span>{{ course.places }}</span>
+                </dd>
+                <dt><span jhiTranslate="registrationCourseApp.course.dateCourse">Date Course</span></dt>
+                <dd>
+                    <span>{{ course.dateCourse }}</span>
+                </dd>
+                <dt><span jhiTranslate="registrationCourseApp.course.imageCourse">Image Course</span></dt>
+                <dd>
+                    <div *ngIf="course.imageCourse">
+                        <a (click)="openFile(course?.imageCourseContentType!, course?.imageCourse)">
+                            <img [src]="'data:' + course.imageCourseContentType + ';base64,' + course.imageCourse" style="max-width: 100%;" alt="course image"/>
+                        </a>
+                        {{ course.imageCourseContentType }}, {{ byteSize(course.imageCourse) }}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="registrationCourseApp.course.registration">Registration</span></dt>
+                <dd>
+                    <div *ngIf="course.registration">
+                        <a [routerLink]="['/registration', course.registration?.id, 'view']">{{ course.registration?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/course', course.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
